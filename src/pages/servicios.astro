@@ -1,0 +1,109 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+
+const services = [
+  {
+    title: 'Mecánica General',
+    description: 'Diagnóstico computarizado y reparación completa de motores a nafta y diésel. Cambio de correas, retenes, reparación de tapas de cilindro, y más.',
+    price: 'Desde $45.000',
+    features: ['Diagnóstico computarizado', 'Reparación de motores', 'Cambio de correa distribución', 'Service completo'],
+  },
+  {
+    title: 'Frenos',
+    description: 'Revisión y reparación completa del sistema de frenado. Cambio de pastillas, discos, líquido de frenos y reparación de cilindros.',
+    price: 'Desde $25.000',
+    features: ['Cambio de pastillas', 'Rectificación de discos', 'Cambio de líquido', 'Revisión completa'],
+  },
+  {
+    title: 'Suspensión y Dirección',
+    description: 'Reparación y reemplazo de amortiguadores, resortes, rótulas, terminales y toda la geometría del tren delantero y trasero.',
+    price: 'Desde $35.000',
+    features: ['Amortiguadores', 'Geometría 3D', 'Rótulas y terminales', 'Tren delantero completo'],
+  },
+  {
+    title: 'Electricidad Automotriz',
+    description: 'Diagnóstico y reparación de sistemas eléctricos. Baterías, alternadores, motores de arranque, iluminación y alarmas.',
+    price: 'Desde $15.000',
+    features: ['Cambio de batería', 'Reparación de alternador', 'Iluminación LED', 'Diagnóstico electrónico'],
+  },
+  {
+    title: 'Aire Acondicionado',
+    description: 'Recarga de gas refrigerante, reparación de compresores, detección de fugas y mantenimiento del sistema de climatización.',
+    price: 'Desde $30.000',
+    features: ['Recarga de gas', 'Detección de fugas', 'Reparación de compresor', 'Mantenimiento anual'],
+  },
+  {
+    title: 'Service de Mantenimiento',
+    description: 'Mantenimiento preventivo programado con cambio de aceite, filtros, revisión de fluidos y control de 50 puntos de seguridad.',
+    price: 'Desde $20.000',
+    features: ['Cambio de aceite y filtros', 'Revisión de 50 puntos', 'Chequeo de fluidos', 'Informe completo'],
+  },
+];
+---
+
+<Layout title="Servicios">
+  <Header />
+
+  <main>
+    <section class="bg-slate-900 py-16 md:py-24">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <h1 class="text-4xl md:text-5xl font-bold text-white mb-4">Nuestros Servicios</h1>
+        <p class="text-lg text-slate-300 max-w-2xl mx-auto">
+          Ofrecemos soluciones integrales para el cuidado y mantenimiento de tu vehículo.
+          Todos nuestros trabajos cuentan con garantía.
+        </p>
+      </div>
+    </section>
+
+    <section class="py-16 md:py-24 bg-white">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {services.map((service) => (
+            <div class="group p-6 bg-white rounded-xl border border-slate-200 hover:border-blue-300 hover:shadow-lg transition-all flex flex-col">
+              <h3 class="text-xl font-bold text-slate-900 mb-2">{service.title}</h3>
+              <p class="text-sm text-slate-600 mb-4 leading-relaxed flex-grow">{service.description}</p>
+              
+              <ul class="space-y-2 mb-4">
+                {service.features.map((feature) => (
+                  <li class="flex items-center gap-2 text-sm text-slate-700">
+                    <svg class="w-4 h-4 text-blue-600 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                    </svg>
+                    {feature}
+                  </li>
+                ))}
+              </ul>
+
+              <div class="pt-4 border-t border-slate-100">
+                <p class="text-lg font-bold text-blue-700">{service.price}</p>
+                <p class="text-xs text-slate-500">* Precio aproximado, puede variar según el vehículo</p>
+              </div>
+            </div>
+          ))}
+        </div>
+
+        <div class="mt-12 p-6 bg-blue-50 rounded-xl border border-blue-100">
+          <div class="flex flex-col md:flex-row items-center justify-between gap-4">
+            <div>
+              <h3 class="text-lg font-bold text-slate-900">¿No encontrás lo que necesitás?</h3>
+              <p class="text-slate-600">Consultanos por cualquier otro servicio o reparación.</p>
+            </div>
+            <a
+              href="/contacto"
+              class="inline-flex items-center px-6 py-3 bg-blue-600 text-white font-medium rounded-lg hover:bg-blue-700 transition-colors"
+            >
+              Consultar
+              <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+              </svg>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <Footer />
+</Layout>

@@ -1,23 +1,22 @@
+---
+import '../styles/global.css';
+---
+
 <!doctype html>
-<html lang="en">
+<html lang="es">
 	<head>
 		<meta charset="UTF-8" />
-		<meta name="viewport" content="width=device-width" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<link rel="icon" href="/favicon.ico" />
 		<meta name="generator" content={Astro.generator} />
-		<title>Astro Basics</title>
+		<meta name="description" content="Mecánica Ríos - Taller mecánico en Monte Grande, Buenos Aires. Servicio de mecánica general, frenos, suspensión, electricidad y más." />
+		<meta name="keywords" content="taller mecánico, Monte Grande, Buenos Aires, mecánica general, frenos, suspensión, service" />
+		<title>{Astro.props.title ? `${Astro.props.title} | Mecánica Ríos` : 'Mecánica Ríos - Taller Mecánico en Monte Grande'}</title>
+		<link rel="preconnect" href="https://fonts.googleapis.com">
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+		<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 	</head>
-	<body>
+	<body class="font-['Inter'] antialiased text-slate-800 bg-white">
 		<slot />
 	</body>
 </html>
-
-<style>
-	html,
-	body {
-		margin: 0;
-		width: 100%;
-		height: 100%;
-	}
-</style>
